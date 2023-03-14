@@ -1,0 +1,62 @@
+<html>
+
+  <head>
+    <title>Habit Tracker!</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+
+    <script>
+      window.addEventListener("load", () => {
+        console.log("loaded");
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+  </head>
+
+  <body background = "images/02-modified.png">
+    <div class = "habit-group">
+      <h1 id = "current-habit"></h1>
+      <button class = "edit-button" onclick="editHabit()" >
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+        width="24" height="24"
+        viewBox="0 0 24 24">
+
+        <path d="M 18.414062 2 C 18.158062 2 17.902031 2.0979687 
+        17.707031 2.2929688 L 15.707031 4.2929688 L 14.292969 5.7070312 L 3 17 L 3 21 L 7 21 L 21.707031 
+        6.2929688 C 22.098031 5.9019687 22.098031 5.2689063 21.707031 4.8789062 L 19.121094 2.2929688 C 
+        18.926094 2.0979687 18.670063 2 18.414062 2 z M 18.414062 4.4140625 L 19.585938 5.5859375 L 
+        18.292969 6.8789062 L 17.121094 5.7070312 L 18.414062 4.4140625 z M 15.707031 7.1210938 L
+         16.878906 8.2929688 L 6.171875 19 L 5 19 L 5 17.828125 L 15.707031 7.1210938 z"></path>
+
+        </svg>
+
+      </button>
+
+      <button class = "save-button" onclick = "saveHabit()">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAmklEQVR4nO2UMQ7CMBAE5xlJ+AmCPvCbFHEoeWughRqqQ0iOhNDJnJ2j80rTrT22TzLUZOYIXAHJ4A4MVsElc3P54GwRLOWtobsrkSxFa0Rh+LfgZlnwvv6v7BPzyDqRFFAFuD/RAxiBNhKAp6dgVLqTp6BRuo2noFW6G09BULon7yEHoItMpUNe811LZE4JDislM9CnBDV85wU6LPVUEagivgAAAABJRU5ErkJggg==">
+      </button>
+
+    </div>
+
+    <h3>
+      Current Streak: 
+    </h3>
+
+    <button id = "counter" onclick = "updateCounter()">
+    </button>
+    <button id = "counter-off" onclick = "updateCounter()">
+    </button>
+    <div class = "completion-group">
+      <h3 id = "month-display"> 
+        February Completion:
+      </h3>
+      <h2 id = "completion-display">
+        21/30 (45%)
+      </h2>
+    </div>
+
+
+  </body>
+
+</html>
