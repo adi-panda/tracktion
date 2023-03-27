@@ -5,11 +5,11 @@ var days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 var months = ["January","February","March","April","May","June","July",
             "August","September","October","November","December"];
 
+var lastClick = 0;
 
 
 window.addEventListener("load", () => {
-    const element = document.getElementById("first-name");
-    console.log("my first name is", element);
+
     var currentHabitHeader = document.getElementById("current-habit");
     
     if(localStorage.getItem("currentHabit") != null){
@@ -17,9 +17,9 @@ window.addEventListener("load", () => {
     }
     currentHabitHeader.innerHTML = currentHabit;
     
-
-
-
+    if(localStorage.getItem("lastClick") != null){
+        lastClick = new Date(localStorage.getItem("lastClick"));
+    }
 
     var currentCounter = document.getElementById("counter");
 
@@ -128,29 +128,54 @@ const saveHabit = () => {
 }
 
 const updateCounter = () =>{
-    currentStreak += 1;
-    var currentCounter = document.getElementById("counter");
-    currentCounter.innerText = currentStreak;
-
-
     var d = new Date();
+    var year = d.getFullYear();
     var month = d.getMonth();
-
-    localStorage.setItem("currentStreak" , currentStreak);
-
-    var currentCompetion = document.getElementById("completion-display");
-    currentCompetion.innerHTML = `${currentStreak} / ${days[month]} 
-                (${Math.ceil((currentStreak/days[month]) * 100)}%)`;
-
-    
+    var day = d.getDate();
     var hours = d.getHours();
     var minutes = d.getMinutes();
     var seconds = d.getSeconds(); 
-    var daysThisMonth = days[month];
+    console.log(d - lastClick);
+    var allowed = d - lastClick > 86400000;
+    if(allowed){
+        currentStreak += 1;
+        var currentCounter = document.getElementById("counter");
+        currentCounter.innerText = currentStreak;
 
-    console.log(hours , minutes, seconds);
-    console.log(daysThisMonth);
+        localStorage.setItem("currentStreak" , currentStreak);
 
+        var currentCompetion = document.getElementById("completion-display");
+        currentCompetion.innerHTML = `${currentStreak} / ${days[month]} 
+                    (${Math.ceil((currentStreak/days[month]) * 100)}%)`;
+
+        daysThisMonth = days[month];
+
+
+        lastClick = d;
+        localStorage.setItem("lastClick", lastClick);
+        //console.log(lastClick);
+        //console.log(hours , minutes, seconds);
+        //console.log(daysThisMonth);
+    }
+    var hoursLeft = Math.floor(24 - ((d - lastClick) / 3600000));
+    startToast(allowed, hoursLeft);
+
+}
+
+const startToast = (allowed, hoursLeft) => {
+    if(allowed){
+        document.getElementById("habit-completed").className = "habit-completed slideUp";
+        setTimeout( function() { 
+            document.getElementById("habit-completed").className = "habit-completed";
+        }, 1500);
+    } else {
+        var waiting = document.getElementById("please-wait");
+        waiting.innerHTML = "Please wait " + hoursLeft + " hours.";
+        waiting.className = "please-wait slideUp";
+        setTimeout( function() { 
+            waiting.className = "please-wait";
+        }, 1500);
+    }
 }
 
 function handleResize(){

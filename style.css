@@ -15,6 +15,33 @@ body {
     background-position: 50% 50%;
 }
 
+.video-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: hidden;
+  }
+  
+  .video-container video {
+    /* Make video to at least 100% wide and tall */
+    min-width: 100%; 
+    min-height: 100%; 
+    
+    /* Setting width & height to auto prevents the browser from stretching or squishing the video */
+    width: auto;
+    height: auto;
+    
+    /* Center the video */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+
+
 h1, h2 {
     margin-top: 0%;
     margin-bottom: 0%;
@@ -25,18 +52,69 @@ h3 {
     margin-top: 0%;
     margin-bottom: 0%;
     width: 14rem;
-
+    height: 2rem;
+    
     backdrop-filter: blur(2px);
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.253);
     background-color: #f4f4f46a;
     border-color: #22222200;
     border-radius: 20px;
 
-    justify-content: center;
-    align-items: center;
+    padding-top: 0.5rem;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    vertical-align: center;
+
     color: #000;
 }
+
+.habit-completed{
+    position: absolute;
+    display: none;
+    margin-top: 6rem;
+    background-color: #00000085;
+    color: #2fff00;
+    border: 2px #eee solid;
+    font-size: 10px;
+    width: 6rem;
+    height: 1rem;
+    padding-top: 0.25rem;
+
+}
+
+.please-wait{
+    position: absolute;
+    display: none;
+    margin-top: 6rem;
+    background-color: #00000085;
+    color: #ff0000;
+    border: 2px #eee solid;
+    font-size: 10px;
+    width: 8rem;
+    height: 1rem;
+    padding-top: 0.25rem;
+
+}
+
+@keyframes slideUpAnimation {
+    0% {
+        margin-top: 12rem;
+        opacity: 1;
+        scale: 1;
+    }
+    100% {
+        margin-top: -2rem;
+        opacity: 0;
+        scale: 2;
+
+    }
+}
+.slideUp {
+    display: block;
+    animation: slideUpAnimation 1.5s;
+}
+
 
 
 
@@ -132,10 +210,10 @@ input{
     
     font-size: 15em;
     width: 20rem;
-    margin-top: 4rem;
+    margin-top: 2rem;
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
-    border-radius: 100px;
+    border-radius: 75px;
     transition: all ease-in-out 0.3s; 
 }
 
@@ -151,7 +229,7 @@ input{
 }
 
 #counter:active, #counter-off:active{
-    color: #00ff26;
+    color: #585858;
     transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;  
 }
 

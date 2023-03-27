@@ -8,7 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
   </head>
 
-  <body background = "images/02-modified.png">
+  <body>
+    <div class = "video-container">
+      <video loop muted autoplay class="video">
+           <source src="images/Spaceman Jellyfish Live Wallpaper [RYxj2_Pz1c0].mp4" type="video/mp4">
+      </video>
+    </div>
+
     <div class = "habit-group">
       <h1 id = "current-habit"></h1>
       <button class = "edit-button" onclick="editHabit()" >
@@ -49,6 +55,14 @@
         21/30 (45%)
       </h2>
     </div>
+
+    <h3 id = "habit-completed" class = "habit-completed">
+      Habit Completed!
+    </h3>
+
+    <h3 id = "please-wait" class = "please-wait">
+      Please Wait 24 Hours.
+    </h3>
 
 
   </body>
