@@ -174,7 +174,7 @@ const startToast = (allowed, hoursLeft) => {
         waiting.className = "please-wait slideUp";
         setTimeout( function() { 
             waiting.className = "please-wait";
-        }, 1500);
+        }, 3000);
     }
 }
 

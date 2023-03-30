@@ -1,0 +1,10 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "this is a yarn ",
+  "main": "index.js",
+  "repository": "https://github.com/n/a",
+  "author": "n/a",
+  "license": "n/a",
+  "private": null
+}

@@ -73,6 +73,7 @@ h3 {
 .habit-completed{
     position: absolute;
     display: none;
+    top: 25%;
     margin-top: 6rem;
     background-color: #00000085;
     color: #2fff00;
@@ -86,6 +87,8 @@ h3 {
 
 .please-wait{
     position: absolute;
+    top: 25%;
+    position: 80%, 80%;
     display: none;
     margin-top: 6rem;
     background-color: #00000085;
@@ -101,19 +104,40 @@ h3 {
 @keyframes slideUpAnimation {
     0% {
         margin-top: 12rem;
-        opacity: 1;
-        scale: 1;
+
     }
     100% {
         margin-top: -2rem;
-        opacity: 0;
-        scale: 2;
+    }
+}
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(0.2);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
 
+@keyframes fadeOut {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
 .slideUp {
     display: block;
-    animation: slideUpAnimation 1.5s;
+    animation: slideUpAnimation 1.5s, scaleAnimation 1.5s, fadeOut 3s;
+    margin-top: -2rem;
+    transform: scale(1.2);
 }
 
 
